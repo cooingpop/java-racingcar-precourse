@@ -8,6 +8,8 @@ package com.game.racing.service;
 
 import java.util.Scanner;
 
+import com.game.racing.model.GamePlayer;
+
 /**
  * @author 박준영
  **/
@@ -23,6 +25,12 @@ public class GameStartService {
 		String input = scanner.next();
 
 		System.out.println(GAME_TRY_MESSAGE);
+		int moveCount = scanner.nextInt();
+
+		GamePlayer gamePlayer = new GamePlayer(input);
+		gamePlayer.setMoveCount(moveCount);
+
 		System.out.println(GAME_PLAY_MESSAGE);
+		gamePlayer.start();
 	}
 }
