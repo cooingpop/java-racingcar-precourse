@@ -22,7 +22,7 @@ public class Car {
 
 	}
 
-	public Car (String input) {
+	public Car(String input) {
 		if (input == null) {
 			throw new NullPointerException(EXCEPTION_MESSAGE_INPUT_NULL);
 		}
