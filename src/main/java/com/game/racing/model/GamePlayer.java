@@ -14,6 +14,7 @@ import java.util.List;
  **/
 public class GamePlayer {
 	private List<Car> carList;
+	private int moveCount;
 
 	public GamePlayer(String input) {
 		carList = new ArrayList<>();
@@ -30,5 +31,16 @@ public class GamePlayer {
 
 	public int getPlayerCount() {
 		return getCarList().size();
+	}
+
+	public void setMoveCount(int moveCount) {
+		this.moveCount = moveCount;
+	}
+
+	public int getMoveCount() {
+		return moveCount;
+	}
+
+	public void start() {
 	}
 }

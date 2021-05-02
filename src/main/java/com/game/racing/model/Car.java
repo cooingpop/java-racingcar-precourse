@@ -17,6 +17,7 @@ public class Car {
 	public final String EXCEPTION_MESSAGE_INPUT_NULL = "이름은 null 입력할 수 없습니다.";
 
 	private String name;
+	private int position;
 
 	public Car() {
 
@@ -38,5 +39,13 @@ public class Car {
 
 	public String getName() {
 		return this.name;
+	}
+
+	public int getPosition() {
+		return position;
+	}
+
+	public void setPosition(int position) {
+		this.position = position;
 	}
 }
