@@ -10,8 +10,8 @@ package com.game.racing.model;
  * @author 박준영
  **/
 public class Car {
-	private final int MAX_LENGTH = 5;
-	private final int MIN_LENGTH = 1;
+	private final int MAX_LENGTH_CAR_NAME = 5;
+	private final int MIN_LENGTH_CAR_NAME = 1;
 
 	public final String EXCEPTION_MESSAGE_INPUT_LENGTH = "이름의 길이는 1 ~ 5자만 가능합니다.";
 	public final String EXCEPTION_MESSAGE_INPUT_NULL = "이름은 null 입력할 수 없습니다.";
@@ -29,7 +29,7 @@ public class Car {
 
 		input = input.trim();
 
-		if (MAX_LENGTH < input.length() || MIN_LENGTH >= input.length()) {
+		if (MAX_LENGTH_CAR_NAME < input.length() || MIN_LENGTH_CAR_NAME >= input.length()) {
 			throw new IllegalArgumentException(EXCEPTION_MESSAGE_INPUT_LENGTH);
 		}
 
