@@ -33,7 +33,7 @@ public class Car {
 
 		input = input.trim();
 
-		if (MAX_LENGTH_CAR_NAME < input.length() || MIN_LENGTH_CAR_NAME >= input.length()) {
+		if (MAX_LENGTH_CAR_NAME < input.length() || MIN_LENGTH_CAR_NAME > input.length()) {
 			throw new IllegalArgumentException(EXCEPTION_MESSAGE_INPUT_LENGTH);
 		}
 
