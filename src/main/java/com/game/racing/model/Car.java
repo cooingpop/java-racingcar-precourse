@@ -6,6 +6,9 @@
 
 package com.game.racing.model;
 
+import com.game.racing.constants.GameConfig;
+import com.game.racing.utils.GeneratedUtils;
+
 /**
  * @author 박준영
  **/
@@ -17,7 +20,7 @@ public class Car {
 	public final String EXCEPTION_MESSAGE_INPUT_NULL = "이름은 null 입력할 수 없습니다.";
 
 	private String name;
-	private int position;
+	private int position = 0;
 
 	public Car() {
 
@@ -48,4 +51,33 @@ public class Car {
 	public void setPosition(int position) {
 		this.position = position;
 	}
+
+
+	public int getRandomNumber() {
+		return GeneratedUtils.getRandomNumber(GameConfig.RANDOM_MIN_VALUE, GameConfig.RANDOM_MAX_VALUE);
+	}
+
+	public boolean canGoForward(int number) {
+		if (GameConfig.GO_FORWARD_AVAILABLE_MIN_VALUE <= number) {
+			return true;
+		}
+
+		return false;
+	}
+
+	public void goForward() {
+		if (canGoForward(getRandomNumber())) {
+			this.position++;
+		}
+	}
+
+	public String getCurrentPositionResult() {
+		StringBuilder result = new StringBuilder();
+		for (int i = 0; i < this.position; i++) {
+			result.append(GameConfig.MOVE_PROGRESS_BAR);
+		}
+
+		return result.toString();
+	}
+
 }
