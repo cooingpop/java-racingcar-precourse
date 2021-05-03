@@ -6,10 +6,15 @@
 
 import static org.assertj.core.api.Assertions.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import com.game.racing.model.Car;
 import com.game.racing.model.GamePlayer;
 
 /**
@@ -31,6 +36,27 @@ public class GamePlayerTest {
 		"Sun, Speed:true","Bio, Logic, XAM, DEO, LIO:true "}, delimiter = ':')
 	public void checkAvailableRaceing(String input, boolean expected) {
 		assertThat(new GamePlayer(input).isAvailableRacing() == expected).isTrue();
+	}
+
+	@Test
+	@DisplayName("가장 멀리간 자동차 승자 확인")
+	public void checkWinner() {
+		Car car1 = new Car("car1");
+		Car car2 = new Car("car2");
+		Car car3 = new Car("car3");
+
+		car1.setPosition(3);
+		car2.setPosition(5);
+		car3.setPosition(2);
+		List<Car> carList = new ArrayList<>();
+
+		carList.add(car1);
+		carList.add(car2);
+		carList.add(car3);
+
+		GamePlayer gamePlayer = new GamePlayer();
+		assertThat(gamePlayer.getWinners(carList).contains(car2)).isTrue();
+
 	}
 
 }
