@@ -7,7 +7,9 @@
 import static org.assertj.core.api.Assertions.*;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import com.game.racing.model.Car;
@@ -31,6 +33,24 @@ public class CarTest {
 		assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy( () -> {
 			new Car(input);
 		}).withMessageMatching(new Car().EXCEPTION_MESSAGE_INPUT_LENGTH);
+	}
+
+	@ParameterizedTest()
+	@DisplayName("자동차 위치에 따라 실행결과 '-' 표시")
+	@CsvSource(value = {"5:-----", "4:-----","1:-","2:-- "}, delimiter = ':')
+	public void setCarName2(int position, String bar) {
+		Car car = new Car();
+		car.setPosition(position);
+		assertThat(car.getCurrentPositionResult().equals(bar)).isTrue();
+	}
+
+	@RepeatedTest(100)
+	@DisplayName("랜덤값이 4이상인 경우 움직일 수 있다.")
+	public void getRandomNumber() {
+		Car car = new Car();
+		int number = car.getRandomNumber();
+		System.out.println(number);
+		assertThat(car.canGoForward(number) == true).isTrue();
 	}
 
 }
