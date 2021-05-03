@@ -24,4 +24,13 @@ public class GamePlayerTest {
 	public void checkPlayerCount(String input, int expected) {
 		assertThat(new GamePlayer(input).getPlayerCount() == expected).isTrue();
 	}
+
+	@ParameterizedTest()
+	@DisplayName("자동차 2대 이상인 경우에 레이싱 가능 여부 확인")
+	@CsvSource(value = {"Sun :false", "Sun, Speed, Mate, Silk:true",
+		"Sun, Speed:true","Bio, Logic, XAM, DEO, LIO:true "}, delimiter = ':')
+	public void checkAvailableRaceing(String input, boolean expected) {
+		assertThat(new GamePlayer(input).isAvailableRacing() == expected).isTrue();
+	}
+
 }
