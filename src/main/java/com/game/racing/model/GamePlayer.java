@@ -13,9 +13,6 @@ import java.util.List;
  * @author 박준영
  **/
 public class GamePlayer {
-	private final int MOVE_MAX_RANGE = 9;
-	private final int MOVE_MIN_RANGE = 0;
-
 	private List<Car> carList;
 	private int moveCount;
 	private int tryCount;
