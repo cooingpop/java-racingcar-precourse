@@ -93,11 +93,22 @@ public class GamePlayer {
 	}
 
 
-	public void printGameResult() {
+	public void printGameCurrent() {
 		for (Car car : this.carList) {
 			System.out.println(String.format("%s : %s", car.getName(), car.getCurrentPositionResult()));
 		}
 		System.out.println();
+	}
+
+	public void printGameResult() {
+		StringBuilder stringBuilder = new StringBuilder();
+		for (Car car : getWinners(this.carList)) {
+			stringBuilder.append(car.getName()).append(",");
+		}
+
+		stringBuilder.delete(stringBuilder.length() -1, stringBuilder.length());
+
+		System.out.println(String.format("%s 가 최종 우승했습니다.", stringBuilder.toString()));
 	}
 
 
